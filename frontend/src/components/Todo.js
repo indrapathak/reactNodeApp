@@ -3,15 +3,13 @@ import { Button, Card } from '@material-ui/core';
 import React, { useState } from 'react';
 //BELOW ARE HOOKS OF REACT WHICH HELP IN GETTING DATA FROM STORE AND ACCESING STATES,USE SELECTOR HOOKS IS USED TO FOR GETTING THE DATA STORED IN THE REDUX STORE
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, deleteTodo, removeTodo } from '../actions/index';
+import { addTodo,deleteTodo,removeTodo } from '../actions/index';
 import { Col, Row } from 'reactstrap';
-
-
 
 const Todo = () => {
     ///  These USESTATE AND USEDIPATCH ARE REACT HOOKS THAT ARE USED TO ACCESS STATE AND DISPATCH ACTIONS
     const [inputData, setInputData] = useState('');
-    const list = useSelector((state) => state.list)
+    const list = useSelector((state) => state.todoReducer.list)
     const dispatch = useDispatch();
     console.log("inside TODO component function")
     return (

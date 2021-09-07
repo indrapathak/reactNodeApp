@@ -22,3 +22,49 @@ export const removeTodo = () =>{
         type : "REMOVE_TODO"
     }
 }
+
+export const changeName = Name =>{
+    return{
+        type:"CHANGE_NAME",
+        payload: Name 
+    }
+}
+
+export const changeEmail = email =>{
+    return{
+        type:"CHANGE_EMAIL",
+        payload: email 
+    }
+}
+
+export const changeMobile = mobile =>{
+    return{
+        type:"CHANGE_MOBILE",
+        payload: mobile 
+    }
+}
+
+export const changeAddress = address =>{
+    return{
+        type:"CHANGE_ADDRESS",
+        payload: address  
+    }
+}
+
+export const changeCompany = company =>{
+    return{
+        type:"CHANGE_COMPANY",
+        payload: company
+    }
+}
+
+export const addFormData = (data) =>{
+    console.log("data inside formdata function of actions is",data)
+    return {
+        type : "ADD_FORMDATA" ,
+        payload : {
+        
+            data : data
+        }
+    }
+}

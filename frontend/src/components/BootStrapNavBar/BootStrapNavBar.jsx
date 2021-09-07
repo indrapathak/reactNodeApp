@@ -35,7 +35,10 @@ return(
           <a class="nav-link active" aria-current="page" href="/parallel">PARALLEL CORDINATE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="https://learningreactappsignup.auth.us-west-2.amazoncognito.com/login?client_id=5pcftmm30ip2tlgsi9nva5u8pi&response_type=code&scope=email+openid&redirect_uri=http://localhost:3000/todo">Logout</a>
+          <a class="nav-link active" aria-current="page" href="/reactReduxFormWithHooks">REACT-REDUX FORM</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">LOGOUT</a>
         </li>
       </ul>
     </div>
@@ -43,8 +46,6 @@ return(
 </nav>
 </>
 );
-
-
 }
 
 export default BootStrapNavBar;

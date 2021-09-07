@@ -8,35 +8,39 @@ import ParalleCordinateCHart from './components/ParallelCordinates/ParallelCordi
 import ContourChart from './components/ContourChart/ContourChart';
 import HeatMap from './components/HeatMap/HeatMap';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { Route, Switch,Redirect,useLocation } from 'react-router-dom';
+import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import Navbar from './components/Navabar/NavBar';
 import BootStrapNavBar from './components/BootStrapNavBar/BootStrapNavBar';
 import Login from './components/Login/Login';
+import ReactReduxForm from './components/ReduxHooksForm/ReduxHooksForm';
 
 // NOTICE THAT BELOW WE ARE SENDING THE PROPS IN ROUTE TAG IN HEAT MAP AND PIE COMPONENT BY FAT ARROW FUNCTION 
 // Also we generally not use render method of react router,when we have to pass props in that component,AS it will rerender the component on change where as ,render method just update the component. 
+
+//Below is an inportant conpcept where we used react router to redirect to an EXTERNAL ONLINE LINK OF AWS SIGNUP PAGE
 const App = () => {
 
   const location = useLocation();
-  console.log("the URL that we are visisting is",location.pathname);
+  console.log("the URL that we are visisting is", location.pathname);
 
-  if(location.pathname === "/")
-  {
+  if (location.pathname === "/") {
     return (
       <>
         <Switch>
-          <Route exact path="/" component={Login} />
+        <Route path='/' component={() => {
+            window.location.href = "https://learningreactappsignup.auth.us-west-2.amazoncognito.com/login?client_id=5pcftmm30ip2tlgsi9nva5u8pi&response_type=code&scope=email+openid&redirect_uri=http://localhost:3000/todo";
+            return null;
+          }} />
           <Redirect to="/" />
         </Switch>
       </>
     )
   }
-  else{
+  else {
     return (
       <>
-        <BootStrapNavBar  />
+        <BootStrapNavBar />
         <Switch>
-          <Route exact path="/" component={Login} />
           <Route exact path="/todo" component={Todo} />
           <Route exact path="/todo" component={Todo} />
           <Route exact path="/heatmap" component={() => <HeatMap yAxis={['Morning', 'Afternoon', 'Evening']} />} />
@@ -44,13 +48,19 @@ const App = () => {
           <Route exact path="/linebar" component={LineBar} />
           <Route exact path="/parallel" component={ParalleCordinateCHart} />
           <Route exact path="/contour" component={ContourChart} />
+          <Route exact path="/reactReduxFormWithHooks" component={ReactReduxForm} />
+          <Route path='/' component={() => {
+            window.location.href = "https://learningreactappsignup.auth.us-west-2.amazoncognito.com/login?client_id=5pcftmm30ip2tlgsi9nva5u8pi&response_type=code&scope=email+openid&redirect_uri=http://localhost:3000/todo";
+            return null;
+          }} />
+
           <Redirect to="/" />
-        </Switch>  
+        </Switch>
       </>
     )
   }
 
-  
+
 }
 
 export default App;

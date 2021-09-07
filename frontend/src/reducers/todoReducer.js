@@ -5,6 +5,7 @@ const initialData = {
 
 const todoReducer = (state = initialData, action) => {
 
+      console.log("todoreducer is called with payload",action.payload);
     switch (action.type) {
         case "ADD_TODO":
             const { id, data } = action.payload;

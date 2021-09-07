@@ -1,0 +1,8 @@
+.LoginComponent{
+    /* The image used */
+    background-image: url(../../../public/images/img1.jpg);
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

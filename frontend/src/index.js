@@ -2,6 +2,7 @@
 //1.provider to wrap the main app which make store available to the app.
 //2. In prder to create store we have to import create store and provide that store to the provider in wrapping
 // 3.  But as reducer is the only one who can update store, so we have to give the reducer name to store as a an argument ,otherwise it will give error.
+//4. Also if we are combining the reducer we have to import the combined reducer and provide it to the app
 
 
 import React from 'react';
@@ -12,7 +13,9 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import { createStore, compose, applyMiddleware } from 'redux';
-import reducer from './reducers/todoReducer';
+import rootReducer from './reducers'
+
+;
 import { BrowserRouter } from 'react-router-dom';
 // import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -21,7 +24,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //const store = createStore(reducer,composeWithDevTools());
 
 export const store = createStore(
-  reducer,
+  rootReducer,
   composeEnhancer(applyMiddleware(thunk))
 );
 

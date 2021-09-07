@@ -27,9 +27,11 @@
   },
   "scripts": {
     "start": "react-scripts --max_old_space_size=8096 start",
+    "deploy":"aws s3 sync build/ s3://reduxreact --acl public-read",
     "build": "react-scripts --max_old_space_size=8096 build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  
   },
   "eslintConfig": {
     "extends": [
